@@ -30,14 +30,14 @@ public class TestComparator {
 
         System.out.println("After sort for id with anonymous:");
 
-        Comparator<Employee> idComporator = new Comparator<Employee>() {
+        Comparator<Employee> idComparator = new Comparator<Employee>() {
             @Override
             public int compare(Employee e1, Employee e2) {
                 return e1.id - e2.id;
             }
         };
 
-        Collections.sort(employeeArrayList, idComporator);
+        Collections.sort(employeeArrayList, idComparator);
         System.out.println(employeeArrayList);
 
         System.out.println("After sort for name with lambda:");
