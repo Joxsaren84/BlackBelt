@@ -42,9 +42,9 @@ public class TestComparator {
 
         System.out.println("After sort for name with lambda:");
 
-        Comparator<Employee> byName = (e1, e2) ->  e1.firstName.compareTo(e2.firstName) == 0 ?  e1.lastName.compareTo(e2.lastName) : e1.firstName.compareTo(e2.firstName);
+        //Comparator<Employee> byName = (e1, e2) ->  e1.firstName.compareTo(e2.firstName) == 0 ?  e1.lastName.compareTo(e2.lastName) : e1.firstName.compareTo(e2.firstName);
 
-        Collections.sort(employeeArrayList, byName);
+        Collections.sort(employeeArrayList, (e1, e2) ->  e1.firstName.compareTo(e2.firstName) == 0 ?  e1.lastName.compareTo(e2.lastName) : e1.firstName.compareTo(e2.firstName));
         System.out.println(employeeArrayList);
     }
 }
