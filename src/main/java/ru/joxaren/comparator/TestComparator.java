@@ -25,7 +25,7 @@ public class TestComparator {
         System.out.println(employeeArrayList);
 
         System.out.println("After sort for name:");
-        Collections.sort(employeeArrayList, new FirstAndLastNameComporator());
+        Collections.sort(employeeArrayList, new FirstAndLastNameComparator());
         System.out.println(employeeArrayList);
 
         System.out.println("After sort for id with anonymous:");
