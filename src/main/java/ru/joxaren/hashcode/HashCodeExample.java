@@ -23,6 +23,12 @@ public class HashCodeExample {
 
         System.out.println(myHashMap);
 
+        //ключ желательно делать final так как после изменения хэш объекта меняется,
+        // а в мапе остается старый и элемент невозможно найти по ключу.
+        st4.course = 5;
+        System.out.println(myHashMap);
+        System.out.println(myHashMap.containsKey(st4));
+
         //Сравнение сначала по hasCode потом по equals
         System.out.println(myHashMap.containsKey(new Student("Alex", "Normov", 2)));
 
