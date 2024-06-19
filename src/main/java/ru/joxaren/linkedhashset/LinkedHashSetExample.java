@@ -1,7 +1,6 @@
 package ru.joxaren.linkedhashset;
 
 import java.util.LinkedHashSet;
-
 public class LinkedHashSetExample {
 
     public static void main(String[] args) {
@@ -13,6 +12,7 @@ public class LinkedHashSetExample {
         linkedHashSet.add(12);
         linkedHashSet.add(35);
         linkedHashSet.add(11);
+        linkedHashSet.add(16);
 
         //запоминает последовательность добавления элементов
         System.out.println(linkedHashSet);
