@@ -2,6 +2,7 @@ package ru.joxaren.lambda;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.function.Predicate;
 
 public class StudentInfo {
 
@@ -34,21 +35,30 @@ public class StudentInfo {
         //System.out.println("-----------------------------------------------------------");
         //info.printStudentsMixCondition(students, 20, 9, 'f');
 
-        info.testStudents(students, student -> student.avgGrade > 8);
-        System.out.println("-----------------------------------------------------------");
-        info.testStudents(students, student -> student.age < 25);
-        System.out.println("-----------------------------------------------------------");
-        info.testStudents(students, student ->  student.age > 20 && student.avgGrade < 9 && student.sex == 'f');
+        //info.testStudents(students, student -> student.avgGrade > 8);
+        //System.out.println("-----------------------------------------------------------");
+        //info.testStudents(students, student -> student.age < 25);
+        //System.out.println("-----------------------------------------------------------");
+        //info.testStudents(students, student ->  student.age > 20 && student.avgGrade < 9 && student.sex == 'f');
 
+        Predicate<Student> p1 = student -> student.avgGrade > 7.5;
+        Predicate<Student> p2 = student -> student.sex == 'm';
+
+        info.testStudents(students, p1.and(p2));
+        System.out.println("-----------------------------------------------------------");
+        info.testStudents(students, p1.or(p2));
+        System.out.println("-----------------------------------------------------------");
+        info.testStudents(students, p1.and(p2).negate());
     }
 
-    void testStudents(ArrayList<Student> arrayList, Condition condition) {
+    void testStudents(ArrayList<Student> arrayList, Predicate<Student> condition) {
         for (Student s : arrayList) {
-            if (condition.check(s)) {
+            if (condition.test(s)) {
                 System.out.println(s);
             }
         }
     }
+
 }
 /*
     void printStudentsOverGrade(ArrayList<Student> arrayList, double grade){
