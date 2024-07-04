@@ -2,6 +2,7 @@ package ru.joxaren.lambda;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class StudentInfo {
@@ -49,6 +50,9 @@ public class StudentInfo {
         info.testStudents(students, p1.or(p2));
         System.out.println("-----------------------------------------------------------");
         info.testStudents(students, p1.and(p2).negate());
+
+        System.out.println("Avg grade of all is: " + avgOfSmth(students, student -> student.avgGrade));
+        System.out.println("Avg age of all is: " + avgOfSmth(students, student -> (double)student.age));
     }
 
     void testStudents(ArrayList<Student> arrayList, Predicate<Student> condition) {
@@ -59,6 +63,13 @@ public class StudentInfo {
         }
     }
 
+    static double avgOfSmth(ArrayList<Student> list, Function<Student , Double> function){
+        double result = 0;
+        for (Student student : list){
+            result += function.apply(student);
+        }
+        return result /= list.size();
+    }
 }
 /*
     void printStudentsOverGrade(ArrayList<Student> arrayList, double grade){
