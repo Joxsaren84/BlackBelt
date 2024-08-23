@@ -22,7 +22,7 @@ public class TestParallelStream {
         System.out.println(dif);
 
         Double difP = list.parallelStream().reduce((a, e) -> a / e).get();
-        System.out.println(dif);
+        System.out.println(difP);
 
     }
 
