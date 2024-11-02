@@ -4,3 +4,4 @@ Winter is white,
 Spring is green,
 Summer is bright
 			Unknown author
+This is text for example

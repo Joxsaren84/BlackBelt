@@ -29,6 +29,17 @@ public class Example {
             }
 
             System.out.println(text);
+            String text2 = "\nThis is text for example";
+
+            //write to file first method
+            //ByteBuffer buffer2 = ByteBuffer.allocate(text2.getBytes().length);
+            //buffer2.put(text2.getBytes());
+            //buffer2.flip();
+            //channel.write(buffer2);
+
+            //write with wrap method
+            ByteBuffer buffer2 = ByteBuffer.wrap(text2.getBytes());
+            channel.write(buffer2);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
