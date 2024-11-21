@@ -7,6 +7,8 @@ public class Employee {
     public String department;
     private double salary;
 
+    private double someField = 800.85;
+
     public Employee(){};
 
     public Employee(int id, String name, String department) {
